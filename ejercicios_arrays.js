@@ -152,3 +152,83 @@ const buscador = function(words, query){
 
 console.log(buscador(["ana", "santi", "nico", "anastasia"], "an"));
 console.log(buscador(["ana", "santi", "nico", "anastasia"], "xyz"));
+
+// Calcula la suma total de los elementos
+const sumaElementos = function(numbers){
+	const suma = numbers.reduce((item1, item2) => item1 + item2,0 )
+	return suma
+}
+
+console.log(sumaElementos([1, 1, 1]));
+console.log(sumaElementos([2, 4, 8])); 
+
+// Calcular la suma de todas las compras entre objetos
+const compras = function(orders){
+	return orders.map((item) => item.total).reduce((count, item) => count + item, 0)
+}
+
+console.log(compras([
+	{
+	  customerName: "Nicolas",
+	  total: 100,
+	  delivered: true,
+	},
+	{
+	  customerName: "Zulema",
+	  total: 120,
+	  delivered: false,
+	}
+]))
+
+// Retornar si al menos alguno de los números es par
+const par = function(numbers){
+	return numbers.some(item => item%2==0)
+}
+
+console.log(par([1, 3, 5, 7, 10, 11]));
+console.log(par([1, 3, 5]));
+
+// Retorna un booleano si todos los elementos son pares.
+const booleano = function(numbers){
+	return numbers.every(item => item % 2 == 0)
+}
+
+console.log(booleano([2, 4, 6, 8, 10]));
+console.log(booleano([1, 3, 5, 7, 10, 11]));
+console.log(booleano([1, 3, 5]));
+
+// Resuelve si dentro de una lista de cartas tienes el AS
+const AS = function(cards){
+	const cartas = cards.find(item => item === "AS")
+	return cartas || false
+}
+
+console.log(AS(['diamonds', 'hearts', 'spades', 'AS']));
+console.log(AS(['diamonds', 'hearts', 'spades']));
+
+// Retorna la posición de una llave dentro de una lista
+const clave = function(words){
+	const myKey = words.findIndex(item => item === "myKey")
+	return myKey !== -1 ? myKey : false
+}
+
+console.log(clave(["diamonds", "myKey", "spades", "AS"]));
+console.log(clave(["diamonds", "hearts", "spades"]));
+console.log(clave(["myKey", "hearts", "spades"]));
+
+// Transforma un string y sepáralo por comas, como en un CSV
+const separador  = function(words){
+	return words.join(",")
+}
+
+console.log(separador(["amor", "sol", "piedra", "día"]));
+console.log(separador(["diamonds", "hearts", "spades"]));
+
+// Construye una URL con base a un string
+const url = function(title){
+	return title.split(' ').join('-').toLowerCase()
+}
+
+console.log(url("La forma de correr Python"));
+console.log(url("La API para nunca parar de aprender"));
+console.log(url("Curso de arrays"));
